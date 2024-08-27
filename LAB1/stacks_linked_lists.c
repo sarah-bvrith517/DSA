@@ -111,9 +111,9 @@ int main() {
                 printf("Exiting...\n");
                 exit(0);
             default:
-                printf("Invalid choice. Please enter a number between 1 and 6.\n");
+                printf("Invalid choice. Please enter a number between 1 and 5.\n");
         }
-    } while (choice != 6);
+    } while (choice != 5);
 
     return 0;
 }
