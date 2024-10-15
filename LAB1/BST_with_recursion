@@ -1,1 +1,102 @@
+#include <stdio.h>
+#include<stdlib.h>
+typedef struct Node{
+    int data;
+    struct Node *left, *right;
+}node;
+node *insert(node*,int);
+void preorder(node*);
+void inorder(node*);
+void postorder(node*);
+node *insert(node *t, int x){
+    if(t==NULL){
+        t=(node *)malloc(sizeof(node));
+        t->data=x;
+        t->left=t->right=NULL;
+        return t;
+    }
+    else if(x<t->data){
+        t->left==insert(t->left,x);
+    }
+    else if(x>t->data){
+        t->right=insert(t->right,x);
+    }
+    else{
+        printf("DATA ALREADY EXISTS!");
+        return t;
+    }
+    return t;
+    
+}
+
+void preorder(node *t){
+    if(t!=NULL){
+        printf("%d\t",t->data);
+        preorder(t->left);
+        preorder(t->right);
+        
+    }
+}
+void inorder(node *t){
+    if(t!=NULL){
+        inorder(t->left);
+        printf("%d\t",t->data);
+        inorder(t->right);
+    }
+}
+void postorder(node *t){
+    if(t!=NULL){
+        postorder(t->left);
+        postorder(t->right);
+        printf("%d\t",t->data);
+    }
+}
+
+void main(){
+    int ch;
+    node *t=NULL;
+    int data;
+    while(1){
+        printf("\n\nM A I N M E N U\n \n");
+        printf("\n1. Insert \n 2. Preorder \n 3. Inorder \n 4.Postorder\n");
+        printf("\n5. Exit\n Enter ur choice :");
+        scanf("%d", &ch);
+        switch(ch){
+            case 1:
+                printf("Enter data:");
+                scanf("%d",&data);
+                t=insert(t,data);
+                break;
+                
+            case 2:
+                preorder(t);
+                break;
+            case 3:
+                inorder(t);
+                break;
+            case 4:
+                inorder(t);
+                break;
+            case 5:
+                default:
+                exit(0);
+                
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
